@@ -54,14 +54,14 @@ class MpExperienceQUIC(MpExperience):
 				self.random_size)
 
 	def getQUICServerCmd(self):
-		s = "./server_main"
+		s = MpExperienceQUIC.MPQUIC_GO_DIR + "server_main"
 		s += " -www . -certpath " + MpExperienceQUIC.CERTPATH + " -bind 0.0.0.0:6121 &>"
 		s += MpExperienceQUIC.SERVER_LOG + " &"
 		print(s)
 		return s
 
 	def getQUICClientCmd(self):
-		s = "./main"
+		s = MpExperienceQUIC.MPQUIC_GO_DIR + "main"
 		if int(self.multipath) > 0:
 			s += " -m"
 		s += " -c https://" + self.mpConfig.getServerIP() + ":6121/random &>" + MpExperienceQUIC.CLIENT_LOG
@@ -69,7 +69,7 @@ class MpExperienceQUIC(MpExperience):
 		return s
 
 	def getQUICClientPreCmd(self):
-		s = "./main"
+		s = MpExperienceQUIC.MPQUIC_GO_DIR + "main"
 		if int(self.multipath) > 0:
 			s += " -m"
 		s += " -c https://" + self.mpConfig.getServerIP() + ":6121/ugfiugizuegiugzeffg &> quic_client_pre.log"
