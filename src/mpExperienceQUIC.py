@@ -77,11 +77,14 @@ class MpExperienceQUIC(MpExperience):
 		return s
 
 	def compileGoFiles(self):
-		cmd = MpExperienceQUIC.GO_BIN + " build " + MpExperienceQUIC.SERVER_GO_FILE
+		#self.mpTopo.commandTo(self.mpConfig.server, "cd " + MpExperienceQUIC.MPQUIC_GO_DIR)
+		cmd = "cd " + MpExperienceQUIC.MPQUIC_GO_DIR
+		#cmd += "; " + MpExperienceQUIC.GO_BIN + " build -o server_main ./" + MpExperienceQUIC.SERVER_GO_FILE + "&>server_build.log"
+		#cmd += "; " + MpExperienceQUIC.GO_BIN + " build ./" + MpExperienceQUIC.CLIENT_GO_FILE + "&>client_build.log"
+                cmd += "; cd -"
 		self.mpTopo.commandTo(self.mpConfig.server, cmd)
-		self.mpTopo.commandTo(self.mpConfig.server, "mv main server_main")
-		cmd = MpExperienceQUIC.GO_BIN + " build " + MpExperienceQUIC.CLIENT_GO_FILE
-		self.mpTopo.commandTo(self.mpConfig.server, cmd)
+		#cmd = MpExperienceQUIC.GO_BIN + " build ./" + MpExperienceQUIC.CLIENT_GO_FILE
+		#self.mpTopo.commandTo(self.mpConfig.server, cmd)
 
 	def clean(self):
 		MpExperience.clean(self)
