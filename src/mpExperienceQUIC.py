@@ -7,9 +7,10 @@ class MpExperienceQUIC(MpExperience):
 	GO_BIN = "/usr/local/go/bin/go"
 	SERVER_LOG = "quic_server.log"
 	CLIENT_LOG = "quic_client.log"
-	CLIENT_GO_FILE = "~/go/src/github.com/lucas-clemente/quic-go/example/client_benchmarker/main.go"
-	SERVER_GO_FILE = "~/go/src/github.com/lucas-clemente/quic-go/example/main.go"
-	CERTPATH = "~/go/src/github.com/lucas-clemente/quic-go/example/"
+	MPQUIC_GO_DIR = "/home/mininet/mpquic/go/src/github.com/mp-quic/"
+	CLIENT_GO_FILE = "example/client_benchmarker/main.go"
+	SERVER_GO_FILE = "example/main.go"
+	CERTPATH = MPQUIC_GO_DIR + "example/"
 	PING_OUTPUT = "ping.log"
 
 	def __init__(self, xpParamFile, mpTopo, mpConfig):

@@ -7,8 +7,9 @@ class MpExperienceQUICReqres(MpExperience):
 	GO_BIN = "/usr/local/go/bin/go"
 	SERVER_LOG = "quic_server.log"
 	CLIENT_LOG = "quic_client.log"
-	CLIENT_GO_FILE = "~/go/src/github.com/lucas-clemente/quic-go/example/reqres/client/reqres.go"
-	SERVER_GO_FILE = "~/go/src/github.com/lucas-clemente/quic-go/example/reqres/reqres.go"
+        MPQUIC_GO_DIR = "~/mpquic/go/src/github.com/mp-quic/"
+	CLIENT_GO_FILE = MPQUIC_GO_DIR + "example/reqres/client/reqres.go"
+	SERVER_GO_FILE = MPQUIC_GO_DIR + "example/reqres/reqres.go"
 	PING_OUTPUT = "ping.log"
 
 	def __init__(self, xpParamFile, mpTopo, mpConfig):
